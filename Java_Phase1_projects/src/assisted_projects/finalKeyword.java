@@ -1,0 +1,23 @@
+package assisted_projects;
+
+public class finalKeyword {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+			try{
+				
+				System.out.println(5/0);
+			}
+			catch(ArithmeticException e){
+				e.printStackTrace();
+				//System.exit(0);
+			}
+			finally{
+				System.out.println("End of program");
+			}
+			System.out.println("Hello All!!!");
+	}
+
+}
+
