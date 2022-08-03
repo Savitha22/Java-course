@@ -95,7 +95,7 @@ public class FixBugs {
         System.out.println("Enter the expense you need to search:\t");
         //Complete the method
 
-        Scanner sc=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
         int searchElement=sc.nextInt();   
         
         if(arrayList.contains(searchElement)) { // contains method check whether given expense is present in the expenditure list or not

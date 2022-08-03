@@ -13,8 +13,7 @@ public class BinarySearchMethod1 {
 		for(int i=0;i<length;i++)
 			array[i]=sc.nextInt();
 		
-		SelectionSort s=new SelectionSort();
-		s.selectionsort(array,length);
+		SelectionSort.selectionsort(array,length);
 		
 		System.out.println("Sorted array is ");
 		for(int i=0;i<length;i++)
