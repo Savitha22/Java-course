@@ -1,91 +1,91 @@
 package assisted_projects;
 
-
 public class QueueExample {
-	 int SIZE = 6;
-	  int items[] = new int[SIZE];
-	  int front, rear;
 
-	  QueueExample() {
-	    front = -1;
-	    rear = -1;
-	  }
-	  boolean isFull() {
-	    if (front == 0 && rear == SIZE - 1) {
-	      return true;
-	    }
-	    return false;
-	  }
-	  boolean isEmpty() {
-	    if (front == -1)
-	      return true;
-	    else
-	      return false;
-	  }
-	  void enQueue(int element) {
-	    if (isFull()) {
-	      System.out.println("Queue is full");
-	    }
-	    else {
-	      if (front == -1) {
-	        front = 0;
-	      }
-
-	      rear++;
-	      items[rear] = element;
-	      System.out.println("Insert " + element);
-	    }
-	  }
-	  int deQueue() {
-	    int element;
-	    if (isEmpty()) {
-	      System.out.println("Queue is empty");
-	      return (-1);
-	    }
-	    else {
-	      element = items[front];
-
-	      if (front >= rear) {
-	        front = -1;
-	        rear = -1;
-	      }
-	      else {
-	        front++;
-	      }
-	      System.out.println( element + " Deleted");
-	      return (element);
-	    }
-	  }
-	  void display() {
-	    int i;
-	    if (isEmpty()) {
-	      System.out.println("Empty Queue");
-	    }
-	    else {
-	      System.out.println("\nFront index :  " + front);
-	      System.out.println("Items  ");
-	      for (i = front; i <= rear; i++)
-	        System.out.print(items[i] + "  ");
-	      System.out.println("\nRear index " + rear);
-	    }
-	  }
+    static Node front, rear ;
 
 	
-
-	public static void main(String[] args) {
-		QueueExample q = new QueueExample();
-	    q.deQueue();
-
+	private class Node{
+	    
+		int data;       
+	    Node next;    
+		}
 	
-	    for(int i = 1; i < 7; i ++) {
-	      q.enQueue(i);
-	    }
-	    q.enQueue(7);
-
-	    q.display();
-	    q.deQueue();
-	    q.display();
-
+	public void dequeue(){
+        if (isEmpty()) {
+            System.out.println("\nQueue Underflow");
+            System.exit(-1);
+        }
+ 
+        // advance front to the next node
+        front = front.next;
+ 
+        // if the list becomes empty
+        if (front == null) {
+            rear = null;
+            System.out.println("There is no element after this");
+        }
+	}
+	
+	public void enqueue(int key){
+        Node new_node = new Node();
+        
+        if (isEmpty()) {     
+            front = new_node;
+            rear = new_node;
+        }
+        else {
+            // update rear
+        	new_node.data=key;
+            rear.next = new_node;
+            rear = new_node;
+        }
+    }
+ 
+   
+    public static int peek() {
+        // check for an empty queue
+        if (isEmpty()) {
+            System.exit(-1);
+        }
+ 
+        return front.data;
+    }
+    
+    
+    public void display(){
+        
+        if (isEmpty()) {
+            System.out.println("\nQueue is empty");
+           }
+        else {
+            Node temp =front;
+            while (temp != null) {
+                
+                System.out.println( temp.data);
+                
+                temp = temp.next;
+            }
+        }
+    }
+    
+    private static boolean isEmpty() {
+		return front==null;
 	}
 
+	public static void main(String[] args)
+    {
+        QueueExample q = new QueueExample();
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(3);
+        q.enqueue(4);
+        q.display();
+ 
+        System.out.printf("The front element is %d\n", q.peek());
+ 
+        q.dequeue();
+        q.dequeue();
+        q.display();
+}
 }
