@@ -12,6 +12,9 @@ public class SelectionSort {
 		for(int i=0;i<Length;i++)
 			array[i]=sc.nextInt();
 		selectionsort(array, Length);
+		for(int i=0;i<Length;i++)
+			System.out.println(array[i]);;
+		
 
 }
 
