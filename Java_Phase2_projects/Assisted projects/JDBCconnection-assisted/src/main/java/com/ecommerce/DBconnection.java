@@ -2,17 +2,12 @@ package com.ecommerce;
 import java.sql.*;
 
 public class DBconnection {
-	static Connection conn=null;
-	public static Connection get_connection() {
+	static Connection conn;
+	public static Connection get_connection(String URL, String user, String pwd) {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			String url="jdbc:mysql://localhost:3306/productdetails";
-			String username="root";
-			String password="Savitha2@";
-			
-			conn=DriverManager.getConnection(url,username,password);
+			 conn=DriverManager.getConnection(URL, user, pwd);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

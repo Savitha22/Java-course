@@ -1,15 +1,9 @@
 package com.ecommerce;
 
-import java.io.IOException;
 
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.io.IOException;
+import java.sql.*;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -17,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 
 
@@ -32,13 +27,20 @@ public class init extends HttpServlet {
 
       
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                // TODO Auto-generated method stub
+              
         	try {
+    			
         		PrintWriter out=response.getWriter();
+    			// get connection
+    			InputStream in = getServletContext().getResourceAsStream("/WEB-INF/config.properties");
+    			Properties props = new Properties();// it is predefine class
+    			props.load(in);
+    			Connection con = DBconnection.get_connection(props.getProperty("url"), props.getProperty("userid"),
+    					props.getProperty("password"));
+
+    		
         		response.setContentType("text/html");
         		out.println("<html><body>"); 
-        		// get connection
-        		Connection con=DBconnection.get_connection();
         		
         		// create sql command
         		String sql="select * from product"; 
@@ -56,9 +58,13 @@ public class init extends HttpServlet {
         			}
         		 	out.println("</table>");  
         		 	out.println("</body></html>");  
+        			con.close();
+
         		}
         		catch (Exception e) {
         			e.printStackTrace();
         		}
-        }}
+    }
+
+}
 
