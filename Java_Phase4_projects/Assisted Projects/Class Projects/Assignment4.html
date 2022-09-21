@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h2>JavaScript prototype</h2>
+        <p id="demo"></p>
+        <script>
+
+            function Student(first,last,classno,regno){
+                this.firstname=first;
+                this.lastname=last;
+                this.Course=classno;
+                this.Registerno=regno;
+
+            }
+
+            Student.prototype.Display=function(){
+                return this.firstname+", "+this.lastname+", "+this.Course+", "+this.Registerno;
+            }
+
+            const studentdetails=new Student("Savitha","Kutti","B.E",2018505053);
+            document.getElementById("demo").innerHTML="Student Details are"+"<br>"+studentdetails.Display();
+
+        </script>
+    </body>
+</html>

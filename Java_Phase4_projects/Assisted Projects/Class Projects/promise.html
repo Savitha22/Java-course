@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            
+            var promise = new Promise(function(resolve,reject){
+                const x="hello";
+                const y="hello";
+                if(x==y)
+                    resolve();
+                else
+                    reject();
+            });
+
+            promise
+                .then(function(){console.log("success"); })
+                .catch(function(){console.log('some Error has occurred');});
+
+        </script>
+    </body>
+</html>

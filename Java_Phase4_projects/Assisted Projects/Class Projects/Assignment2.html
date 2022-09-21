@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+              
+              function compare(){
+                var name1=document.getElementById("name1").value;
+                var name2=document.getElementById("name2").value;
+                
+                if(name1==name2)
+                    document.getElementById("ans").innerHTML="Both are Equal";
+                else
+                    document.getElementById("ans").innerHTML="Both are not Equal";
+
+                }  
+                
+              
+                          
+         </script>
+
+    </head>
+    <body>
+        
+            Enter name1<input type="text" id="name1" ><br>
+            Enter name2<input type="text" id="name2" onblur="compare()"><br>
+
+            <pid id="ans"></p>
+            
+        
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+
+            function addition(num1,num2, MyCallBack){
+                var ans=num1+num2;
+                MyCallBack(ans);
+            }
+            function print(ans){
+                alert("sum= "+ans);
+
+            }
+            function square(ans){
+                alert("square= "+(ans*ans));
+
+            }
+            addition(4,5,print);
+            addition(3,5,square);
+
+        </script>
+        <h2>Welcome</h2>
+    </body>
+</html>

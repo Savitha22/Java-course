@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+           
+            function makeAdder1(x){
+               
+                function addition()
+                {   return x+x;
+                }
+           
+                return addition;
+            }
+           
+           
+           var ans=makeAdder1(5);
+           var total=ans();
+           console.log(total);
+
+
+           function makeAdder(x){
+                return function(y){
+                    return x+y;
+                };
+            }
+
+            var add=makeAdder(5);
+            var add1=makeAdder(10);
+            console.log(add(2));
+            console.log(add1(2));
+        </script>
+    </body>
+</html>

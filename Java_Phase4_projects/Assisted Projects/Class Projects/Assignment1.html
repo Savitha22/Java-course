@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            function Multiples(){
+                var num=parseInt(document.getElementById("num").value);
+                var multiple="";
+                for(i=1;i<=10;i++){
+                    multiple= multiple+num*i+"<br>";
+
+                }
+                
+                document.getElementById("Ans").innerHTML=multiple;
+            }
+
+        </script>
+    </head>
+    <body>
+        Enter number:<input type="text" id="num" >
+
+        <input type="button" value="click" onclick="Multiples()">
+        <p id="Ans"></p>
+
+    </body>
+</html>
